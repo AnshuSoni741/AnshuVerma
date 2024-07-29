@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span
+      class="typed"
+      data-typed-items="Designer, Developer, Freelancer"
+    ></span>
+  </body>
+
+  <!-- <script src="./typed.js/typed.module.js"></script> -->
+  <!-- <script src="./typed.js/typed.cjs"></script> -->
+  <!-- <script src="./typed.js/typed.cjs.map"></script> -->
+  <!-- <script src="./typed.js/typed.module.js.map"></script> -->
+  <script src="./typed.js/typed.umd.js"></script>
+  <!-- <script src="./typed.js/typed.umd.js.map"></script> -->
+  <script>
+    (function () {
+      "use strict";
+
+      const select = (el, all = false) => {
+        el = el.trim();
+        if (all) {
+          return [...document.querySelectorAll(el)];
+        } else {
+          return document.querySelector(el);
+        }
+      };
+
+      const typed = select(".typed");
+      if (typed) {
+        let typed_strings = typed.getAttribute("data-typed-items");
+        typed_strings = typed_strings.split(",");
+        new Typed(".typed", {
+          strings: typed_strings,
+          loop: true,
+          typeSpeed: 100,
+          backSpeed: 50,
+          backDelay: 2000,
+        });
+      }
+    })();
+  </script>
+</html>
